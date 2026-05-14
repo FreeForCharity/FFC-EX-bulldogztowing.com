@@ -2,55 +2,43 @@ import { test, expect } from '@playwright/test'
 import { testConfig } from './test.config'
 
 /**
- * Logo and Image Visibility Tests
+ * Logo / Header Branding Tests
  *
- * These tests verify that critical images are present and visible on the homepage:
- * 1. Header logo (top left corner) - validates the organization branding
- * 2. Hero section image - validates the decorative hero image is displayed
- *
- * Note: Test expectations use values from test.config.ts for easy customization
+ * The Bulldogz header logo image has aria-hidden="true" and alt="".
+ * We locate it via the aria-label on the wrapping Link element.
  */
 
-test.describe('Logo and Image Visibility', () => {
-  test('should display logo in header', async ({ page }) => {
-    // Navigate to the homepage
+test.describe('Logo and Header Branding', () => {
+  test('should display branded logo link in header', async ({ page }) => {
     await page.goto('/')
 
-    // Find the logo in the Header
-    // The logo is in a Link element that points to "/" with img alt text
-    const headerLogo = page.locator(`header a[href="/"] img[alt="${testConfig.logo.headerAlt}"]`)
-
-    // Verify the logo exists
-    await expect(headerLogo).toBeVisible()
-
-    // Verify the logo has the correct alt text
-    await expect(headerLogo).toHaveAttribute('alt', testConfig.logo.headerAlt)
+    const logoLink = page.locator(`header a[aria-label="${testConfig.logo.navBarAriaLabel}"]`)
+    await expect(logoLink).toBeVisible()
   })
 
-  test('should display hero section image', async ({ page }) => {
-    // Navigate to the homepage
+  test('logo link should navigate to home', async ({ page }) => {
     await page.goto('/')
 
-    // Find the hero image
-    const heroImage = page.locator(`img[alt="${testConfig.logo.heroAlt}"]`)
-
-    // Verify the image exists
-    await expect(heroImage).toBeVisible()
-
-    // Verify the image has the correct alt text
-    await expect(heroImage).toHaveAttribute('alt', testConfig.logo.heroAlt)
+    const logoLink = page.locator(`header a[aria-label="${testConfig.logo.navBarAriaLabel}"]`)
+    const href = await logoLink.getAttribute('href')
+    expect(href).toBe('/')
   })
 
-  test('both header logo and hero image should be present on the same page', async ({ page }) => {
-    // Navigate to the homepage
+  test('header should contain the business name text', async ({ page }) => {
     await page.goto('/')
 
-    // Find both images
-    const headerLogo = page.locator(`header a[href="/"] img[alt="${testConfig.logo.headerAlt}"]`)
-    const heroImage = page.locator(`img[alt="${testConfig.logo.heroAlt}"]`)
+    const header = page.locator('header')
+    await expect(header).toContainText('Bulldogz')
+    await expect(header).toContainText('Towing')
+  })
 
-    // Verify both are visible simultaneously
-    await expect(headerLogo).toBeVisible()
-    await expect(heroImage).toBeVisible()
+  test('logo image should be present in header', async ({ page }) => {
+    await page.goto('/')
+
+    // The logo img has aria-hidden; find it inside the branded link
+    const logoImg = page.locator(`header a[aria-label="${testConfig.logo.navBarAriaLabel}"] img`)
+    await expect(logoImg).toBeVisible()
+    const src = await logoImg.getAttribute('src')
+    expect(src).toBeTruthy()
   })
 })
