@@ -11,56 +11,40 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn(() => '/'),
 }))
 
-// Mock framer-motion to avoid animation issues in tests
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <div {...props}>{children}</div>
-    ),
-    nav: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => (
-      <nav {...props}>{children}</nav>
-    ),
-  },
-  AnimatePresence: ({ children }: React.PropsWithChildren) => <>{children}</>,
-}))
-
 describe('Header component', () => {
   it('should render the header', () => {
     render(<Header />)
     expect(screen.getByRole('banner')).toBeInTheDocument()
   })
 
-  it('should display the Free For Charity logo', () => {
+  it('should link the logo to the home page', () => {
     render(<Header />)
-    // Check for logo image with alt text
-    expect(screen.getByAltText('Free For Charity')).toBeInTheDocument()
+    expect(screen.getByLabelText(/Bulldogz Towing home/i)).toBeInTheDocument()
   })
 
   it('should display Home navigation link', () => {
     render(<Header />)
-    // Home link should always be present in navigation
     expect(screen.getByText('Home')).toBeInTheDocument()
   })
 
   it('should have navigation links', () => {
     render(<Header />)
-    // Check that navigation has at least some links
     const links = screen.getAllByRole('link')
     expect(links.length).toBeGreaterThan(0)
   })
 
-  it('should have a mobile menu button', () => {
+  it('should have a click-to-call link with the business phone number', () => {
     render(<Header />)
-    // Look for the menu icon button
-    const buttons = screen.getAllByRole('button')
-    expect(buttons.length).toBeGreaterThan(0)
+    const links = screen.getAllByRole('link')
+    const telLink = links.find((link) => link.getAttribute('href')?.startsWith('tel:'))
+    expect(telLink).toBeDefined()
+    expect(telLink?.getAttribute('href')).toContain('17174957703')
   })
 
-  it('should have search functionality button', () => {
+  it('should have a mobile menu toggle button', () => {
     render(<Header />)
     const buttons = screen.getAllByRole('button')
-    // Should have at least menu and search buttons
-    expect(buttons.length).toBeGreaterThanOrEqual(2)
+    expect(buttons.length).toBeGreaterThan(0)
   })
 
   it('should not have accessibility violations', async () => {

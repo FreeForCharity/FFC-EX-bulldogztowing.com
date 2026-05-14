@@ -13,26 +13,23 @@ describe('Footer component', () => {
     expect(footer).toBeInTheDocument()
   })
 
-  it('should display Endorsements section', () => {
-    render(<Footer />)
-    expect(screen.getByText('Endorsements')).toBeInTheDocument()
-  })
-
   it('should display Quick Links section', () => {
     render(<Footer />)
     expect(screen.getByText('Quick Links')).toBeInTheDocument()
   })
 
-  it('should display Contact Us section with contact information', () => {
+  it('should display Contact section heading', () => {
     render(<Footer />)
-    expect(screen.getByText('Contact Us')).toBeInTheDocument()
+    // Footer has a Contact heading; assert by role to disambiguate from the link list.
+    expect(screen.getByRole('heading', { name: /^Contact$/i })).toBeInTheDocument()
   })
 
-  it('should have social media links', () => {
+  it('should display the business phone number as a tel: link', () => {
     render(<Footer />)
-    // Check for social media links by their aria-labels or visible text
     const links = screen.getAllByRole('link')
-    expect(links.length).toBeGreaterThan(0)
+    const telLink = links.find((link) => link.getAttribute('href')?.startsWith('tel:'))
+    expect(telLink).toBeDefined()
+    expect(telLink?.textContent).toMatch(/\(717\) 495-7703/)
   })
 
   it('should display the current year in copyright', () => {
@@ -41,18 +38,9 @@ describe('Footer component', () => {
     expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument()
   })
 
-  it('should have GuideStar profile link', () => {
+  it('should reference Bulldogz Towing in copyright', () => {
     render(<Footer />)
-    const guidestarLink = screen.getByText(/GuideStar Profile/i)
-    expect(guidestarLink).toBeInTheDocument()
-  })
-
-  it('should have email contact link', () => {
-    render(<Footer />)
-    // Look for email link
-    const links = screen.getAllByRole('link')
-    const emailLink = links.find((link) => link.getAttribute('href')?.includes('mailto:'))
-    expect(emailLink).toBeDefined()
+    expect(screen.getByText(/Bulldogz Towing/i)).toBeInTheDocument()
   })
 
   it('should not have accessibility violations', async () => {

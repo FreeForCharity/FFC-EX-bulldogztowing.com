@@ -1,32 +1,24 @@
 import React from 'react'
 import Hero from '@/components/home-page/Hero'
-import Mission from '@/components/home-page/Mission'
-import SupportFreeForCharity from '@/components/home-page/SupportFreeForCharity'
-import EndowmentFeatures from '@/components/home-page/Endowment-Features'
-import OurPrograms from '@/components/home-page/Our-Programs'
-import VolunteerwithUs from '@/components/home-page/Volunteer-with-Us'
-import Results2023 from '@/components/home-page/Results-2023'
-import Testimonials from '@/components/home/Testimonials'
-import TheFreeForCharityTeam from '@/components/home-page/TheFreeForCharityTeam'
-import FrequentlyAskedQuestions from '@/components/home-page/FrequentlyAskedQuestions'
-import Events from '@/components/home-page/Events'
+import About from '@/components/home-page/About'
+import Services from '@/components/home-page/Services'
+import Gallery from '@/components/home-page/Gallery'
+import Testimonials from '@/components/home-page/Testimonials'
+import ServiceAreas from '@/components/home-page/ServiceAreas'
+import Contact from '@/components/home-page/Contact'
 
-const index = () => {
+const HomePage: React.FC = () => {
   return (
-    <div>
+    <main id="main">
       <Hero />
-      <Mission />
-      <Results2023 />
+      <About />
+      <Services />
+      <Gallery />
       <Testimonials />
-      <VolunteerwithUs />
-      <Events />
-      <SupportFreeForCharity />
-      <EndowmentFeatures />
-      <OurPrograms />
-      <FrequentlyAskedQuestions />
-      <TheFreeForCharityTeam />
-    </div>
+      <ServiceAreas />
+      <Contact />
+    </main>
   )
 }
 
-export default index
+export default HomePage
