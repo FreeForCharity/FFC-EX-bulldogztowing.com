@@ -1,39 +1,34 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Header from './../components/header'
 import Footer from './../components/footer'
 import CookieConsent from './../components/cookie-consent'
 import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/google-tag-manager'
-import {
-  openSans,
-  lato,
-  raleway,
-  faustina,
-  cantataOne,
-  faunaOne,
-  montserrat,
-  cinzel,
-} from '@/lib/fonts'
+import { openSans, lato, montserrat } from '@/lib/fonts'
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ffcworkingsite1.org'),
+  metadataBase: new URL('https://bulldogztowing.com'),
   title: {
-    default: 'Free For Charity | Reduce Costs, Increase Impact',
-    template: '%s | Free For Charity',
+    default: 'Bulldogz Towing | 24/7 Towing & Roadside Assistance in Glen Rock, PA',
+    template: '%s | Bulldogz Towing',
   },
   description:
-    'Free For Charity connects students, professionals, and businesses with nonprofits to reduce costs and increase revenues—putting more resources back into their missions.',
+    'Bulldogz Towing — fast, friendly, 24/7 towing and roadside assistance in Glen Rock, PA and southern York County. Licensed, insured, and 5-star rated. Call (717) 495-7703.',
   keywords: [
-    'nonprofit',
-    'charity',
-    'volunteer',
-    'donate',
-    'free hosting',
-    'domains',
-    'Microsoft 365',
+    'towing',
+    'tow truck',
+    'roadside assistance',
+    'Glen Rock PA',
+    'York County PA',
+    'flatbed towing',
+    'lockout service',
+    'jump start',
+    'fuel delivery',
+    'long distance towing',
+    'Bulldogz Towing',
   ],
   robots: {
     index: true,
@@ -51,27 +46,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://ffcworkingsite1.org/',
-    siteName: 'Free For Charity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
+    url: 'https://bulldogztowing.com/',
+    siteName: 'Bulldogz Towing',
+    title: 'Bulldogz Towing | 24/7 Towing in Glen Rock, PA',
     description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
+      'Fast response, licensed and insured towing — 24 hours a day, 365 days a year. Glen Rock, PA.',
     images: [
       {
-        url: '/web-app-manifest-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Free For Charity',
+        url: '/Images/bulldogztowing/hero-truck.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Bulldogz Towing truck',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@freeforcharity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
-    description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
-    images: ['/web-app-manifest-512x512.png'],
+    title: 'Bulldogz Towing | 24/7 Towing in Glen Rock, PA',
+    description: 'Fast response, licensed and insured towing — 24 hours a day, 365 days a year.',
+    images: ['/Images/bulldogztowing/hero-truck.jpeg'],
   },
   icons: {
     icon: [
@@ -82,6 +75,13 @@ export const metadata: Metadata = {
   },
   manifest: `${basePath}/site.webmanifest`,
 }
+
+export const viewport: Viewport = {
+  themeColor: '#0a0a0a',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,48 +90,39 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://ffcsites.org" />
-        <link rel="preconnect" href="https://www.zeffy.com" />
-        <link rel="preconnect" href="https://widgets.guidestar.org" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://ffcsites.org" />
-        <link rel="dns-prefetch" href="https://www.zeffy.com" />
-        <link rel="dns-prefetch" href="https://www.idealist.org" />
-
         {/* Preload critical LCP image */}
         <link
           rel="preload"
           as="image"
-          href={`${basePath}/Images/figma-hero-img.webp`}
+          href={`${basePath}/Images/bulldogztowing/hero-truck.jpeg`}
           fetchPriority="high"
         />
-
         <GoogleTagManager />
       </head>
       <body
         className={[
           'antialiased',
+          'bg-white',
+          'text-bulldog-ink',
           openSans.variable,
           lato.variable,
-          raleway.variable,
-          faustina.variable,
-          cantataOne.variable,
-          faunaOne.variable,
           montserrat.variable,
-          cinzel.variable,
         ].join(' ')}
         suppressHydrationWarning={true}
       >
         <GoogleTagManagerNoScript />
-        {/* <PopupProvider> */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-md focus:bg-bulldog-red focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+        >
+          Skip to main content
+        </a>
         <Header />
         {children}
         <Footer />
         <CookieConsent />
-        {/* <PopupsRootClient /> */}
-        {/* </PopupProvider> */}
       </body>
     </html>
   )
