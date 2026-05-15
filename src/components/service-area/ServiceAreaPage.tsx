@@ -1,6 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
-import { Phone, MapPin, Clock, ArrowLeft } from 'lucide-react'
+import {
+  Phone,
+  MapPin,
+  Clock,
+  ArrowLeft,
+  Wrench,
+  Truck,
+  KeySquare,
+  Caravan,
+  Package,
+  Route,
+  Fuel,
+  Anchor,
+} from 'lucide-react'
 import { BUSINESS } from '@/data/bulldogz/business'
 import type { ServiceArea } from '@/data/bulldogz/areas'
 import { SERVICES } from '@/data/bulldogz/services'
@@ -9,11 +22,48 @@ interface Props {
   area: ServiceArea
 }
 
+/** Maps service title keywords to a lucide icon component */
+const SERVICE_ICONS: Record<string, React.ReactNode> = {
+  'Roadside Assistance': (
+    <Wrench className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Cars, Pickups, Vans & Motorcycles': (
+    <Truck className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Lockouts & Jump Starts': (
+    <KeySquare className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'RVs, Motorhomes & Trailers': (
+    <Caravan className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Hauling & Transport': (
+    <Package className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Local & Long-Distance Towing': (
+    <Route className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Fuel Delivery & Tire Repair': (
+    <Fuel className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+  'Aircraft & Boat Recovery': (
+    <Anchor className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+  ),
+}
+
 const ServiceAreaPage: React.FC<Props> = ({ area }) => {
   return (
     <main id="main" className="bg-white">
-      <section className="bg-bulldog-ink pb-16 pt-32 text-white md:pt-40">
-        <div className="mx-auto max-w-4xl px-4">
+      <section className="relative bg-bulldog-ink pb-16 pt-32 text-white md:pt-40 overflow-hidden">
+        {/* Red corner accent — visual anchor tying back to brand */}
+        <div
+          className="absolute top-0 right-0 w-64 h-64 bg-bulldog-red/10 -translate-y-1/2 translate-x-1/2 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-bulldog-red via-bulldog-red/60 to-transparent"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-4xl px-4">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-white/70 hover:text-bulldog-red-light"
@@ -67,8 +117,11 @@ const ServiceAreaPage: React.FC<Props> = ({ area }) => {
             {SERVICES.map((s) => (
               <li
                 key={s.title}
-                className="rounded-md border border-neutral-200 bg-neutral-50 p-4 text-sm font-semibold text-bulldog-ink"
+                className="flex items-center gap-3 rounded-md border border-neutral-200 bg-neutral-50 p-4 text-sm font-semibold text-bulldog-ink hover:border-bulldog-red/40 hover:bg-white transition-colors"
               >
+                {SERVICE_ICONS[s.title] ?? (
+                  <Wrench className="h-5 w-5 shrink-0 text-bulldog-red-light" aria-hidden="true" />
+                )}
                 {s.title}
               </li>
             ))}
