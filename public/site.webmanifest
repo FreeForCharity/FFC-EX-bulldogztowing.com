@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "short_name": "",
-  "icons": [],
-  "theme_color": "#ffffff",
+  "name": "Bulldogz Towing",
+  "short_name": "Bulldogz",
+  "icons": [{ "src": "/icon.svg", "type": "image/svg+xml", "sizes": "any" }],
+  "theme_color": "#0a0a0a",
   "background_color": "#ffffff",
   "display": "standalone"
 }
