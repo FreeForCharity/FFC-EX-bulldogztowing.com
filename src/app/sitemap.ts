@@ -14,19 +14,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/privacy-policy/`,
+      url: `${baseUrl}/privacy-policy`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms-of-service/`,
+      url: `${baseUrl}/terms-of-service`,
       lastModified: now,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     ...SERVICE_AREAS.map((area) => ({
-      url: `${baseUrl}/${area.slug}/`,
+      url: `${baseUrl}/${area.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
