@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test'
  * Home Page Smoke Tests
  *
  * Verifies that the Bulldogz Towing home page renders all expected sections:
- * Hero, About, Services, Gallery, Testimonials, Service Areas, and Contact.
+ * Hero, About, Services, Gallery, Testimonials, Service Areas, Contact, and Rates.
  */
 
 test.describe('Home page smoke', () => {
@@ -57,6 +57,13 @@ test.describe('Home page smoke', () => {
     const contact = page.locator('#contact')
     await expect(contact).toBeVisible()
     await expect(contact).toContainText('Contact')
+    await expect(contact).toContainText('Towing Lot Hours')
+  })
+
+  test('Rates section is present', async ({ page }) => {
+    const rates = page.locator('#rates')
+    await expect(rates).toBeVisible()
+    await expect(rates).toContainText('Hook Up & 5 Miles')
   })
 
   test('Header navigation links are rendered', async ({ page }) => {
@@ -69,7 +76,9 @@ test.describe('Home page smoke', () => {
   })
 
   test('Footer renders with Quick Links and Contact sections', async ({ page }) => {
-    const footer = page.locator('footer')
+    // The page footer is the only <footer> with the contentinfo role — review
+    // cards also render <footer> elements, so a bare 'footer' locator is ambiguous.
+    const footer = page.getByRole('contentinfo')
     await expect(footer).toBeVisible()
     await expect(footer.getByText('Quick Links')).toBeVisible()
     await expect(footer.getByRole('heading', { name: /^Contact$/i })).toBeVisible()

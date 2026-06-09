@@ -65,7 +65,16 @@ export const testConfig = {
    * Home page sections
    * Used in: tests/smoke.spec.ts
    */
-  homeSections: ['hero', 'about', 'services', 'gallery', 'reviews', 'service-areas', 'contact'],
+  homeSections: [
+    'hero',
+    'about',
+    'services',
+    'gallery',
+    'reviews',
+    'service-areas',
+    'contact',
+    'rates',
+  ],
 
   /**
    * Service area slugs

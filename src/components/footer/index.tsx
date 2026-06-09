@@ -14,6 +14,7 @@ const QUICK_LINKS = [
   { name: 'Reviews', href: '/#reviews' },
   { name: 'Service Areas', href: '/#service-areas' },
   { name: 'Contact', href: '/#contact' },
+  { name: 'Rates', href: '/#rates' },
 ]
 
 const POLICY_LINKS = [
@@ -122,7 +123,11 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-start gap-3">
               <Clock className="mt-0.5 h-5 w-5 flex-none text-bulldog-red" aria-hidden="true" />
-              <span className="text-white/80">{BUSINESS.hours}</span>
+              <span className="text-white/80">
+                <span className="block">Towing: {BUSINESS.hours}</span>
+                <span className="mt-1 block">Lot: {BUSINESS.lotHoursWeekday}</span>
+                <span className="block">{BUSINESS.lotHoursWeekend}</span>
+              </span>
             </li>
           </ul>
         </div>

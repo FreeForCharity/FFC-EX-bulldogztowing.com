@@ -6,6 +6,7 @@ import Gallery from '@/components/home-page/Gallery'
 import Testimonials from '@/components/home-page/Testimonials'
 import ServiceAreas from '@/components/home-page/ServiceAreas'
 import Contact from '@/components/home-page/Contact'
+import Rates from '@/components/home-page/Rates'
 
 const HomePage: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
       <Testimonials />
       <ServiceAreas />
       <Contact />
+      <Rates />
     </main>
   )
 }
