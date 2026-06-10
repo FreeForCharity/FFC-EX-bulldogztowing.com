@@ -18,6 +18,7 @@ const MENU_ITEMS: MenuItem[] = [
   { label: 'Gallery', href: '/#gallery' },
   { label: 'Reviews', href: '/#reviews' },
   { label: 'Areas', href: '/#service-areas' },
+  { label: 'Rates', href: '/#rates' },
   { label: 'Contact', href: '/#contact' },
 ]
 

@@ -73,9 +73,14 @@ const Contact: React.FC = () => {
                 </span>
                 <span className="flex-1">
                   <span className="block text-sm uppercase tracking-widest text-white/60">
-                    Hours
+                    Towing Hours
                   </span>
                   <span className="block text-xl font-bold">{BUSINESS.hours}</span>
+                  <span className="mt-3 block text-sm uppercase tracking-widest text-white/60">
+                    Towing Lot Hours
+                  </span>
+                  <span className="block text-base font-bold">{BUSINESS.lotHoursWeekday}</span>
+                  <span className="block text-base font-bold">{BUSINESS.lotHoursWeekend}</span>
                 </span>
               </li>
               <li>

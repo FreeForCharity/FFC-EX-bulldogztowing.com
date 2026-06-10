@@ -4,7 +4,8 @@
  * NOTE: Customer last names have been reduced to last initial for privacy.
  * The live site sources these from a Google Reviews widget — replaced with a
  * static snapshot because JavaScript-driven widgets do not run on the
- * static export. Snapshot date: 2026-05-14. Aggregate rating: 5.0 / 34 reviews.
+ * static export. Review text snapshot date: 2026-05-14. Aggregate rating
+ * re-checked 2026-06-09 against the Google Business profile: 5.0 / 51 reviews.
  */
 
 export interface Review {
@@ -78,6 +79,6 @@ export const REVIEWS: Review[] = [
 
 export const AGGREGATE_RATING = {
   rating: 5.0,
-  reviewCount: 34,
+  reviewCount: 51,
   source: 'Google',
 }

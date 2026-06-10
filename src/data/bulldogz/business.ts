@@ -10,6 +10,8 @@ export const BUSINESS = {
   phoneTel: '+17174957703',
   address: 'Glen Rock, PA',
   hours: 'Open 24 hours a day, 365 days a year',
+  lotHoursWeekday: 'Monday – Friday: 7 AM to 5 PM',
+  lotHoursWeekend: 'Saturday & Sunday: By appointment only',
   facebook: 'https://www.facebook.com/profile.php?id=100090835107611',
   // Google Business profile / Maps short link search query for Glen Rock, PA.
   mapsSearchUrl: 'https://www.google.com/maps/search/?api=1&query=Bulldogz+Towing+Glen+Rock+PA',
