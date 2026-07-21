@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { assetPath } from '@/lib/assetPath'
 import { SERVICES } from '@/data/bulldogz/services'
 
@@ -28,12 +29,13 @@ const Services: React.FC = () => {
               key={service.title}
               className="group flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-100">
-                <img
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+                <Image
                   src={assetPath(service.image)}
                   alt={service.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">

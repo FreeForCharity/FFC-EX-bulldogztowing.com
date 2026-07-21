@@ -4,6 +4,7 @@ import Header from './../components/header'
 import Footer from './../components/footer'
 import CookieConsent from './../components/cookie-consent'
 import GoogleTagManager, { GoogleTagManagerNoScript } from './../components/google-tag-manager'
+import StructuredData from './../components/structured-data'
 import { openSans, lato, montserrat } from '@/lib/fonts'
 
 // Get basePath for GitHub Pages deployment
@@ -97,6 +98,7 @@ export default function RootLayout({
           fetchPriority="high"
         />
         <GoogleTagManager />
+        <StructuredData />
       </head>
       <body
         className={[

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { assetPath } from '@/lib/assetPath'
 import { GALLERY } from '@/data/bulldogz/gallery'
 
@@ -31,12 +32,14 @@ const Gallery: React.FC = () => {
               key={image.src}
               className="group relative overflow-hidden rounded-md bg-neutral-900"
             >
-              <div className="aspect-[4/3]">
-                <img
+              <div className="relative aspect-[4/3]">
+                <Image
                   src={assetPath(image.src)}
                   alt={image.alt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 50vw"
                   loading={index < 3 ? 'eager' : 'lazy'}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
+                  className="object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-90"
                 />
               </div>
             </li>

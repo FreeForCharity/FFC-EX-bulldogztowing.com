@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Phone, MapPin, Clock, ShieldCheck } from 'lucide-react'
 import { assetPath } from '@/lib/assetPath'
 import { BUSINESS } from '@/data/bulldogz/business'
@@ -12,13 +13,14 @@ const Hero: React.FC = () => {
     >
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
-        <img
+        <Image
           src={assetPath('/Images/bulldogztowing/hero-truck.jpeg')}
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover opacity-40"
-          loading="eager"
-          fetchPriority="high"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/30" />
       </div>
