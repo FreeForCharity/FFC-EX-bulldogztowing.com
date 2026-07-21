@@ -63,9 +63,12 @@ const Testimonials: React.FC = () => {
               <blockquote className="mt-3 flex-1 text-base leading-relaxed text-neutral-700">
                 <p>&ldquo;{review.text}&rdquo;</p>
               </blockquote>
-              <footer className="mt-4 border-t border-neutral-100 pt-3 text-sm font-semibold text-bulldog-ink">
+              {/* div, not <footer>: the fleet smoke test inspects the first <footer>
+                  in the DOM for policy links, and this card footer shadowed the
+                  site footer. */}
+              <div className="mt-4 border-t border-neutral-100 pt-3 text-sm font-semibold text-bulldog-ink">
                 {review.name}
-              </footer>
+              </div>
             </li>
           ))}
         </ul>
