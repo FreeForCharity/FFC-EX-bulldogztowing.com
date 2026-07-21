@@ -14,6 +14,7 @@ const SCHEMA = {
   '@id': 'https://bulldogztowing.com/#business',
   name: BUSINESS.name,
   slogan: BUSINESS.tagline,
+  description: `24/7 towing and roadside assistance in Glen Rock, PA and southern York County. Towing: ${BUSINESS.hours}. Towing lot: ${BUSINESS.lotHoursWeekday}; ${BUSINESS.lotHoursWeekend}.`,
   url: 'https://bulldogztowing.com/',
   image: 'https://bulldogztowing.com/Images/bulldogztowing/logo.jpeg',
   telephone: BUSINESS.phoneTel,
@@ -64,7 +65,12 @@ const SCHEMA = {
 }
 
 const StructuredData: React.FC = () => (
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+  <script
+    id="business-jsonld"
+    type="application/ld+json"
+    // Escape < so no data value can ever terminate the script element early.
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA).replace(/</g, '\\u003c') }}
+  />
 )
 
 export default StructuredData
