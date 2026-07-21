@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, MapPin, Clock, Facebook } from 'lucide-react'
 import { assetPath } from '@/lib/assetPath'
 import { BUSINESS } from '@/data/bulldogz/business'
@@ -31,10 +32,12 @@ const Footer: React.FC = () => {
         {/* Brand */}
         <div className="space-y-4">
           <Link href="/" className="flex items-center gap-3" aria-label="Bulldogz Towing home">
-            <img
+            <Image
               src={assetPath('/Images/bulldogztowing/logo.jpeg')}
               alt=""
               aria-hidden="true"
+              width={48}
+              height={48}
               className="h-12 w-12 rounded-md"
             />
             <span className="font-black uppercase leading-tight tracking-wider">

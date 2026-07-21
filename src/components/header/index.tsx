@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Menu, X } from 'lucide-react'
 import { assetPath } from '@/lib/assetPath'
 import { BUSINESS } from '@/data/bulldogz/business'
@@ -48,11 +49,13 @@ const Header: React.FC = () => {
           className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-bulldog-red"
           aria-label="Bulldogz Towing home"
         >
-          <img
+          <Image
             src={assetPath('/Images/bulldogztowing/logo.jpeg')}
             alt=""
             aria-hidden="true"
-            className={`rounded-md transition-all duration-300 ${isScrolled ? 'h-9' : 'h-11'}`}
+            width={44}
+            height={44}
+            className={`w-auto rounded-md transition-all duration-300 ${isScrolled ? 'h-9' : 'h-11'}`}
           />
           <span className="font-black uppercase leading-tight tracking-wider">
             <span className="block text-base text-white sm:text-lg">Bulldogz</span>

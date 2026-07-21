@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { assetPath } from '@/lib/assetPath'
 import { ShieldCheck, Clock, Award } from 'lucide-react'
 
@@ -26,10 +27,12 @@ const About: React.FC = () => {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:items-center">
         <div className="relative">
           <div className="overflow-hidden rounded-lg shadow-xl">
-            <img
+            <Image
               src={assetPath('/Images/bulldogztowing/hero-secondary.jpeg')}
               alt="Bulldogz Towing truck on a job"
-              loading="lazy"
+              width={480}
+              height={538}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-full w-full object-cover"
             />
           </div>
