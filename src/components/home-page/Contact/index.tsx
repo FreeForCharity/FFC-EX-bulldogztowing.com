@@ -48,6 +48,24 @@ const Contact: React.FC = () => {
               </li>
               <li>
                 <a
+                  href={`tel:${BUSINESS.officePhoneTel}`}
+                  className="group flex items-start gap-4 rounded-lg bg-white/5 p-5 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-bulldog-red"
+                >
+                  <span className="rounded-md bg-bulldog-red p-3">
+                    <Phone className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <span className="flex-1">
+                    <span className="block text-sm uppercase tracking-widest text-white/60">
+                      Office
+                    </span>
+                    <span className="block text-2xl font-bold group-hover:text-bulldog-red-light">
+                      {BUSINESS.officePhone}
+                    </span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
                   href={BUSINESS.mapsSearchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
