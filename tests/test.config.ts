@@ -13,6 +13,8 @@ export const testConfig = {
     name: 'Bulldogz Towing',
     phone: '(717) 495-7703',
     phoneTel: '+17174957703',
+    officePhone: '(717) 495-3065',
+    officePhoneTel: '+17174953065',
     address: 'Glen Rock, PA',
   },
 

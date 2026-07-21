@@ -111,6 +111,15 @@ const Footer: React.FC = () => {
               </a>
             </li>
             <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-5 w-5 flex-none text-bulldog-red" aria-hidden="true" />
+              <a
+                href={`tel:${BUSINESS.officePhoneTel}`}
+                className="font-semibold text-white hover:text-bulldog-red-light"
+              >
+                Office: {BUSINESS.officePhone}
+              </a>
+            </li>
+            <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 flex-none text-bulldog-red" aria-hidden="true" />
               <a
                 href={BUSINESS.mapsSearchUrl}

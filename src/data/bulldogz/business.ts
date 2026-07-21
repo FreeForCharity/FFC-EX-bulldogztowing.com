@@ -8,6 +8,8 @@ export const BUSINESS = {
   tagline: 'Get Towed In Record Time',
   phone: '(717) 495-7703',
   phoneTel: '+17174957703',
+  officePhone: '(717) 495-3065',
+  officePhoneTel: '+17174953065',
   address: 'Glen Rock, PA',
   hours: 'Open 24 hours a day, 365 days a year',
   lotHoursWeekday: 'Monday – Friday: 7 AM to 5 PM',

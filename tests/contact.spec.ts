@@ -31,6 +31,20 @@ test.describe('Contact information', () => {
     await expect(telLink).toContainText(testConfig.business.phone)
   })
 
+  test('contact section has an office tel: link with correct number', async ({ page }) => {
+    const contactSection = page.locator('#contact')
+    const officeTel = contactSection.locator(`a[href="tel:${testConfig.business.officePhoneTel}"]`)
+    await expect(officeTel).toBeVisible()
+    await expect(officeTel).toContainText(testConfig.business.officePhone)
+  })
+
+  test('site footer has an office tel: link with correct number', async ({ page }) => {
+    const footer = page.getByRole('contentinfo')
+    const officeTel = footer.locator(`a[href="tel:${testConfig.business.officePhoneTel}"]`)
+    await expect(officeTel).toBeVisible()
+    await expect(officeTel).toContainText(testConfig.business.officePhone)
+  })
+
   test('site footer has a tel: link with correct number', async ({ page }) => {
     const footer = page.getByRole('contentinfo')
     const footerTel = footer.locator('a[href^="tel:"]').first()

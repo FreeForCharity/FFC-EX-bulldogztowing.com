@@ -32,6 +32,14 @@ describe('Footer component', () => {
     expect(telLink?.textContent).toMatch(/\(717\) 495-7703/)
   })
 
+  it('should display the office phone number as a tel: link', () => {
+    render(<Footer />)
+    const links = screen.getAllByRole('link')
+    const officeTelLink = links.find((link) => link.getAttribute('href') === 'tel:+17174953065')
+    expect(officeTelLink).toBeDefined()
+    expect(officeTelLink?.textContent).toMatch(/\(717\) 495-3065/)
+  })
+
   it('should display the current year in copyright', () => {
     render(<Footer />)
     const currentYear = new Date().getFullYear()
