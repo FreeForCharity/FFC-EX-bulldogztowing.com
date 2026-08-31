@@ -81,12 +81,13 @@ export default function PrivacyPolicy() {
             from your IP address at the time of your visit; IP geolocation is approximate. In the
             EEA, the UK, and Switzerland, Google Analytics runs cookie-free until you accept through
             the cookie banner. (Switzerland is included because Google&apos;s consent defaults cover
-            it; Swiss visitors&apos; data is protected by Switzerland&apos;s Federal Act on Data
-            Protection (FADP) rather than the GDPR.) Everywhere else, including the United States,
-            analytics cookies are set from your first pageview. You can change your choice at any
-            time via the Cookie Preferences link in the footer of every page; withdrawing consent
-            deletes the tracking cookies this site set. Session recording (Microsoft Clarity) and
-            marketing (Meta Pixel) load only after you explicitly opt in — everywhere in the world.
+            it; the data of visitors in Switzerland is protected by Switzerland&apos;s Federal Act
+            on Data Protection (FADP) rather than the GDPR.) Everywhere else, including the United
+            States, analytics cookies are set from your first pageview. You can change your choice
+            at any time via the Cookie Preferences link in the footer of every page; withdrawing
+            consent deletes the tracking cookies this site set. Session recording (Microsoft
+            Clarity) and marketing (Meta Pixel) load only after you explicitly opt in — everywhere
+            in the world.
           </p>
           <p>
             <strong>Your rights.</strong> You have the right to: access the personal data we hold
