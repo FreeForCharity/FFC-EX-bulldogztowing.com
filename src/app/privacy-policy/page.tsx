@@ -79,13 +79,13 @@ export default function PrivacyPolicy() {
             <strong>How consent works, in plain language.</strong> We use Google Consent Mode. The
             same rule applies to every visitor, so nothing depends on where you are. Google
             Analytics runs cookie-free until you accept through the cookie banner, wherever in the
-            world you are. (Switzerland is included because Google&apos;s consent defaults cover it;
-            the data of visitors in Switzerland is protected by Switzerland&apos;s Federal Act on
-            Data Protection (FADP) rather than the GDPR.) There is no country in which analytics
-            cookies are set before you choose. You can change your choice at any time via the Cookie
-            Preferences link in the footer of every page; withdrawing consent deletes the tracking
-            cookies this site set. Session recording (Microsoft Clarity) and marketing (Meta Pixel)
-            load only after you explicitly opt in — everywhere in the world.
+            world you are. (Visitors in Switzerland are protected by Switzerland&apos;s Federal Act
+            on Data Protection (FADP) rather than the GDPR; the treatment described here is the same
+            either way.) There is no country in which analytics cookies are set before you choose.
+            You can change your choice at any time via the Cookie Preferences link in the footer of
+            every page; withdrawing consent deletes the tracking cookies this site set. Session
+            recording (Microsoft Clarity) and marketing (Meta Pixel) load only after you explicitly
+            opt in — everywhere in the world.
           </p>
           <p>
             <strong>Your rights.</strong> You have the right to: access the personal data we hold
