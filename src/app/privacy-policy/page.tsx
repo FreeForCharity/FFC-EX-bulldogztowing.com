@@ -78,16 +78,15 @@ export default function PrivacyPolicy() {
           <p>
             <strong>How consent works regionally.</strong> We use Google Consent Mode. Whether the
             permissive or the opt-in default applies to Google&apos;s tags is determined by Google
-            from your IP address at the time of your visit; IP geolocation is approximate. In the
-            EEA, the UK, and Switzerland, Google Analytics runs cookie-free until you accept through
-            the cookie banner. (Switzerland is included because Google&apos;s consent defaults cover
-            it; the data of visitors in Switzerland is protected by Switzerland&apos;s Federal Act
-            on Data Protection (FADP) rather than the GDPR.) Everywhere else, including the United
-            States, analytics cookies are set from your first pageview. You can change your choice
-            at any time via the Cookie Preferences link in the footer of every page; withdrawing
-            consent deletes the tracking cookies this site set. Session recording (Microsoft
-            Clarity) and marketing (Meta Pixel) load only after you explicitly opt in — everywhere
-            in the world.
+            from your IP address at the time of your visit; IP geolocation is approximate. Google
+            Analytics runs cookie-free until you accept through the cookie banner, wherever in the
+            world you are. (Switzerland is included because Google&apos;s consent defaults cover it;
+            the data of visitors in Switzerland is protected by Switzerland&apos;s Federal Act on
+            Data Protection (FADP) rather than the GDPR.) There is no country in which analytics
+            cookies are set before you choose. You can change your choice at any time via the Cookie
+            Preferences link in the footer of every page; withdrawing consent deletes the tracking
+            cookies this site set. Session recording (Microsoft Clarity) and marketing (Meta Pixel)
+            load only after you explicitly opt in — everywhere in the world.
           </p>
           <p>
             <strong>Your rights.</strong> You have the right to: access the personal data we hold
@@ -131,11 +130,11 @@ export default function PrivacyPolicy() {
             <strong>Opt-out preference signals (Global Privacy Control / Do Not Track).</strong>{' '}
             This site does not read or respond to the Global Privacy Control or Do Not Track browser
             signals. We do not sell or share personal information as defined by the CCPA/CPRA, so
-            there is nothing for those signals to opt out of. Analytics cookies are set
-            automatically for visitors outside the EEA, the UK, and Switzerland; any visitor can
-            turn them off at any time via the Cookie Preferences link in the footer, and we delete
-            the cookies when you do. Session recording (Microsoft Clarity) and marketing (Meta
-            Pixel) never load without your explicit opt-in, anywhere in the world.
+            there is nothing for those signals to opt out of. Analytics cookies are never set before
+            you accept, anywhere in the world; you can turn them off again at any time via the
+            Cookie Preferences link in the footer, and we delete the cookies when you do. Session
+            recording (Microsoft Clarity) and marketing (Meta Pixel) never load without your
+            explicit opt-in, anywhere in the world.
           </p>
           <p>
             <strong>Exercising your rights.</strong> Call us at{' '}
